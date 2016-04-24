@@ -34,7 +34,6 @@ public class HtmlEditor {
         // Set week-of caption
         Element caption = doc.select("caption").first();
         caption.text("" + dataArray[0]);
-//        System.out.println("" + caption.toString());
         
         // Set days, titles, and descriptions        
         Element td1 = doc.select("td").first();
@@ -50,7 +49,7 @@ public class HtmlEditor {
     	fw.write(doc.body().toString());
     	
     	fw.close();
-    	File newHTML = new File("/Users/Aly/Documents/workspace/Website_Update_Utility/test.html");
+    	File newHTML = new File("/Users/Aly/Documents/workspace/Website_Update_Utility/index.html");
     	System.out.println("New file index.html created.");
     	return newHTML;
 	}
