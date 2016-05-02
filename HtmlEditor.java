@@ -27,9 +27,8 @@ public class HtmlEditor {
      * @throws IOException
      */
     public static File getHTML(String[] dataArray) throws IOException {
-        String addr = "http://baristasofeastcobb.com";
+        String addr = "websiteAddress";
         Document doc = Jsoup.connect(addr).get();
-
 
         // Set week-of caption
         Element caption = doc.select("caption").first();
@@ -43,15 +42,19 @@ public class HtmlEditor {
             Element td2 = doc.select("td").get(i-1);;
             td2.text("" + dataArray[i]);
         }
-        
-    	FileWriter fw = new FileWriter("index.html");
+        String path = "/Users/User/Path";
+		File file = new File(path);
+		
+		FileWriter fw = new FileWriter(file.getAbsoluteFile());
+    	
     	fw.write(doc.head().toString());
     	fw.write(doc.body().toString());
     	
+		System.out.println("File index.html edited.");
     	fw.close();
-    	File newHTML = new File("/Users/Aly/Documents/workspace/Website_Update_Utility/index.html");
-    	System.out.println("New file index.html created.");
-    	return newHTML;
+		System.out.println("File index.html closed.");
+
+    	return file;
 	}
     
     static List<String> readFromFile(String path, Charset encoding) throws IOException {

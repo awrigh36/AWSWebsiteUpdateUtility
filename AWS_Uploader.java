@@ -65,7 +65,7 @@ public class AWS_Uploader {
         Region usEast1 = Region.getRegion(Regions.US_EAST_1);
         s3.setRegion(usEast1);
 
-        String bucketName = "baristasofeastcobb.com";
+        String bucketName = "bucketName";
         String key = "index.html";
     	
         System.out.println("===========================================");

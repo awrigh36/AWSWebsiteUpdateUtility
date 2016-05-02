@@ -10,6 +10,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -19,10 +20,7 @@ public class UpdateGUI {
 	private JFrame frame;
 	private JPanel controlPanel;
 	private JLabel cap_label1;
-	private JLabel cap_label2;
 	private JTextField dates;
-	private JTextField endDate;
-	private JTextField endYear;
 	private JButton b1;
 	private JLabel cap_label3;
 	
@@ -32,9 +30,6 @@ public class UpdateGUI {
 	private JLabel thu;
 	private JLabel fri;
 	private JLabel sat;
-	
-	private JLabel name;
-	private JLabel desc;
 	
 	private JTextField name1;
 	private JTextField name2;
@@ -51,7 +46,6 @@ public class UpdateGUI {
 	private JTextField desc5;
 	private JTextField desc6;
 	
-	private JLabel comma;
 	private JPanel panel;
 	private JButton b2;
 	private JLabel previewText1;
@@ -81,7 +75,7 @@ public class UpdateGUI {
 		frame.setSize(600, 400);
 		frame.setLayout(new FlowLayout());
 	
-		cap_label1 = new JLabel("Title: ");
+		cap_label1 = new JLabel("Week of ");
 		dates = new JTextField("", 16);
 		cap_label3 = new JLabel("");
 		
@@ -112,15 +106,7 @@ public class UpdateGUI {
 		controlPanel.setLayout(new FlowLayout());
 		
 		frame.add(controlPanel);
-
-		b1 = new JButton("Preview");
-		b1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			cap_label3.setText("" + dates.getText().toString());
-			}
-		});
 		
-		controlPanel.add(b1);
 		controlPanel.add(cap_label3);	
 
 		panel = new JPanel();
@@ -144,8 +130,6 @@ public class UpdateGUI {
 		panel.add(sat);
 		panel.add(name6);
 		panel.add(desc6);
-		
-
 	
 		b2 = new JButton("Preview");
 		b2.addActionListener(new ActionListener() {
@@ -181,16 +165,13 @@ public class UpdateGUI {
 		panel2.add(previewText5);
 		panel2.add(previewText6);
 		
-
-		
 		panel4 = new JPanel(new FlowLayout());
 		b3 = new JButton("Done");
 		b3.addActionListener(new ActionListener() {
 
-
 			public void actionPerformed(ActionEvent arg0) {
 				try {			    	
-					cap_label3.setText("" + cap_label1.getText().toString());
+					cap_label3.setText("" + cap_label1.getText().toString() + "" + dates.getText().toString());
 							
 					previewText1.setText("Monday: " +
 							name1.getText().toString() + "  " + desc1.getText().toString());
@@ -230,9 +211,12 @@ public class UpdateGUI {
 
 					
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					System.out.println(e);
 				}
+				
+		        JOptionPane.showMessageDialog(frame, "Changes completed successfully");	
+				System.exit(0);
 			}
 			
 		});
