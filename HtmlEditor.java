@@ -1,29 +1,20 @@
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Scanner;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 public class HtmlEditor {
     /**
      * Creates a temporary file with html data to upload to the bucket
      * 
-     * @param input
-     * @return
+     * @param String[]
+     * @return File
      * @throws IOException
      */
     public static File getHTML(String[] dataArray) throws IOException {
